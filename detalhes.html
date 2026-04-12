@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha do Membro – Admin</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/detalhes.css">
+</head>
+<body>
+
+  <!-- HEADER ADMIN -->
+  <header class="admin-topo" style="background:linear-gradient(135deg,#00801c,#005c14);color:white;display:flex;justify-content:space-between;align-items:center;padding:16px 40px;box-shadow:0 2px 10px rgba(0,0,0,.2);">
+    <h1 style="font-size:18px;font-weight:700;">Ficha do Membro</h1>
+    <button class="btn-sair" onclick="logout()" style="background:rgba(255,255,255,.15);color:white;border:1px solid rgba(255,255,255,.4);padding:8px 18px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html">Membros</a>
+    <a href="admin-mensalidades.html">Mensalidades</a>
+    <a href="admin-datas.html">Datas Festivas</a>
+    <a href="admin-galeria.html">Galeria</a>
+  </nav>
+
+  <main class="detalhes-container">
+
+    <!-- FICHA DO MEMBRO -->
+    <section id="detalhes" class="card-detalhes"></section>
+
+    <!-- MENSALIDADES -->
+    <section class="mensalidades-box">
+      <div class="mensalidades-box-header">
+        <h2>Mensalidades</h2>
+        <div class="ano-seletor" id="anoSeletor"></div>
+      </div>
+
+      <!-- Resumo rápido -->
+      <div class="mens-resumo" id="mensResumo"></div>
+
+      <table class="tabela-mensalidades">
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="listaMensalidades"></tbody>
+      </table>
+    </section>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="area-voltar">
+      <a href="admin.html" class="btn-voltar">← Voltar aos membros</a>
+    </div>
+
+  </main>
+
+  <script src="assets/js/detalhes.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("logado");
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

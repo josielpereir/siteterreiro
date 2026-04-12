@@ -1,0 +1,102 @@
+/* TÍTULO */
+.titulo-galeria {
+  text-align: center;
+  font-size: 2rem;
+  color: #00801c;
+  margin-bottom: 30px;
+}
+
+/* GRID DE CARDS */
+.galeria-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.card-festa {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* CAPA */
+.capa-festa {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* INFO */
+.info-festa {
+  padding: 15px;
+  text-align: center;
+}
+
+.info-festa h3 {
+  color: #00801c;
+  margin-bottom: 5px;
+}
+
+.info-festa span {
+  font-size: 14px;
+  color: #555;
+}
+
+.info-festa button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #00801c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.info-festa button:hover {
+  background-color: #006b17;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-conteudo {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* FOTOS */
+.fotos-modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.fotos-modal img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}

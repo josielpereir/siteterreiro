@@ -1,0 +1,821 @@
+/* ========================
+   ADMIN – TOPO
+======================== */
+.admin-topo {
+  background: linear-gradient(135deg, #00801c 0%, #005c14 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.20);
+}
+
+.admin-topo h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.btn-sair {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-sair:hover {
+  background: rgba(255,255,255,0.28);
+}
+
+/* ========================
+   ADMIN – NAV MENU
+======================== */
+.admin-menu {
+  background: white;
+  border-bottom: 2px solid #e8f5e9;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.admin-menu a {
+  text-decoration: none;
+  color: #555;
+  padding: 14px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.admin-menu a:hover {
+  color: #00801c;
+  border-bottom-color: #a5d6a7;
+}
+
+.admin-menu a.ativo {
+  color: #00801c;
+  border-bottom-color: #00801c;
+  font-weight: 600;
+}
+
+/* ========================
+   ADMIN – ESTATÍSTICAS
+======================== */
+.stats {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card-stats {
+  background: white;
+  border-radius: 10px;
+  padding: 22px 20px;
+  text-align: center;
+  border-left: 5px solid #00801c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-stats:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+}
+
+.card-stats h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #00801c;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.card-stats p {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.card-stats.stat-azul {
+  border-left-color: #1d6fa5;
+}
+.card-stats.stat-azul h3 {
+  color: #1d6fa5;
+}
+.card-stats.stat-vermelho {
+  border-left-color: #c62828;
+}
+.card-stats.stat-vermelho h3 {
+  color: #c62828;
+}
+
+/* ========================
+   ADMIN – BARRA DE AÇÕES
+======================== */
+.barra-acoes {
+  max-width: 1100px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cadastrar {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #00801c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,128,28,0.20);
+}
+
+.btn-cadastrar:hover {
+  background: #006b17;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,128,28,0.30);
+  color: white;
+  text-decoration: none;
+}
+
+/* ========================
+   ADMIN – LISTA MEMBROS
+======================== */
+.section-membros {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.section-membros > p {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+  font-size: 15px;
+}
+
+.grid-membros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+/* Card de membro */
+.card-membro {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #00801c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-membro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.11);
+}
+
+.card-membro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.card-membro h3 {
+  font-size: 16px;
+  color: #00801c;
+  font-weight: 600;
+  flex: 1;
+}
+
+.badge-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.badge-ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge-pendente {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.badge-inadimplente {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.card-membro p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-membro p strong {
+  color: #333;
+  min-width: 65px;
+  display: inline-block;
+}
+
+.acoes-membro {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.acoes-membro button {
+  flex: 1;
+  padding: 8px 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12.5px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.btn-ver {
+  background: #2e7d32;
+}
+.btn-ver:hover {
+  background: #1b5e20;
+}
+
+.btn-editar {
+  background: #00801c;
+}
+.btn-editar:hover {
+  background: #006b17;
+}
+
+.btn-excluir {
+  background: #c62828;
+}
+.btn-excluir:hover {
+  background: #a93226;
+}
+
+/* ========================
+   ADMIN – GALERIA
+======================== */
+.admin-container {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 24px;
+}
+
+.admin-box {
+  background: white;
+  padding: 26px;
+  border-radius: 10px;
+  border-left: 5px solid #00801c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.admin-box h2 {
+  margin-bottom: 18px;
+  color: #00801c;
+  font-size: 17px;
+}
+
+.admin-box label {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 14px 0 5px;
+  color: #333;
+}
+
+.admin-box input,
+.admin-box select,
+.admin-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1.5px solid #ddd;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.admin-box input:focus,
+.admin-box select:focus,
+.admin-box textarea:focus {
+  border-color: #00801c;
+}
+
+.admin-box button {
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: #00801c;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.admin-box button:hover {
+  background: #006b17;
+  transform: translateY(-1px);
+}
+
+.admin-box .btn-excluir {
+  background: #c62828;
+}
+.admin-box .btn-excluir:hover {
+  background: #a93226;
+}
+
+.admin-dica {
+  margin: 14px 0 8px;
+  font-size: 13px;
+  color: #777;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #ccc;
+}
+
+.fotos-admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.fotos-admin img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fotos-admin img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px #00801c;
+}
+
+/* ========================
+   ADMIN – MENSALIDADES (detalhes.html)
+======================== */
+.mensalidades-box {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  border-left: 6px solid #00801c;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.mensalidades-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mensalidades-box h2 {
+  color: #00801c;
+  font-size: 18px;
+  margin: 0;
+}
+
+.ano-seletor {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ano-btn {
+  padding: 5px 13px;
+  border: 2px solid #00801c;
+  background: white;
+  color: #00801c;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.ano-btn.ativo,
+.ano-btn:hover {
+  background: #00801c;
+  color: white;
+}
+
+.tabela-mensalidades {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela-mensalidades th {
+  background: #f4f6f4;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #444;
+  border-bottom: 2px solid #e0e8e0;
+}
+
+.tabela-mensalidades td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tabela-mensalidades tr.pago {
+  background: #f0faf2;
+}
+
+.tabela-mensalidades tr.nao-pago {
+  background: #fff8f8;
+}
+
+.tabela-mensalidades tr.pago span {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.tabela-mensalidades tr.nao-pago span {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.tabela-mensalidades input[type="checkbox"] {
+  transform: scale(1.3);
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #00801c;
+}
+
+.tabela-mensalidades td:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ========================
+   ADMIN – MENSALIDADES (admin-mensalidades.html)
+======================== */
+.mensalidades-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.mens-titulo {
+  font-size: 22px;
+  color: #00801c;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.mens-ano-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.mens-ano-row span {
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.mens-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.mens-stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+  border-left: 4px solid #00801c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.mens-stat-card.card-verde  { border-left-color: #2e7d32; }
+.mens-stat-card.card-vermelho { border-left-color: #c62828; }
+.mens-stat-card.card-azul   { border-left-color: #1d6fa5; }
+.mens-stat-card.card-amarelo{ border-left-color: #f59e0b; }
+
+.mens-stat-num {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #00801c;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.mens-stat-card.card-verde  .mens-stat-num { color: #2e7d32; }
+.mens-stat-card.card-vermelho .mens-stat-num { color: #c62828; }
+.mens-stat-card.card-azul   .mens-stat-num { color: #1d6fa5; }
+.mens-stat-card.card-amarelo .mens-stat-num { color: #d97706; }
+
+.mens-stat-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Filtros */
+.mens-filtros {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.mens-filtros input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.mens-filtros input[type="text"]:focus {
+  border-color: #00801c;
+}
+
+.filtro-btns {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 8px 15px;
+  border: 1.5px solid #ddd;
+  background: white;
+  color: #555;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.filtro-btn.ativo,
+.filtro-btn:hover {
+  border-color: #00801c;
+  background: #00801c;
+  color: white;
+}
+
+/* Tabela de mensalidades */
+.tabela-wrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  overflow-x: auto;
+}
+
+.tabela-mens {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.tabela-mens thead tr {
+  background: #00801c;
+  color: white;
+}
+
+.tabela-mens th {
+  padding: 12px 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tabela-mens .th-nome {
+  text-align: left;
+  padding-left: 18px;
+  min-width: 180px;
+  position: sticky;
+  left: 0;
+  background: #00801c;
+  z-index: 2;
+}
+
+.tabela-mens tbody tr {
+  transition: background 0.15s;
+}
+
+.tabela-mens tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.tabela-mens tbody tr:hover .td-nome-cell {
+  background: #f0f8f0;
+}
+
+.tabela-mens td {
+  padding: 9px 8px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.td-nome-cell {
+  text-align: left;
+  padding: 10px 18px;
+  min-width: 200px;
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+  border-right: 1px solid #eee;
+}
+
+.tabela-mens tbody tr:nth-child(even) .td-nome-cell {
+  background: #fafafa;
+}
+
+.nome-membro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nome-membro-texto {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #1a1a2e;
+}
+
+.funcao-membro-texto {
+  font-size: 11px;
+  color: #888;
+}
+
+.dia-pag-badge {
+  font-size: 10px;
+  color: #00801c;
+  background: #e8f5e9;
+  padding: 1px 7px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 2px;
+  width: fit-content;
+}
+
+/* Células de mês */
+.celula-mes {
+  cursor: pointer;
+  transition: background 0.12s;
+  font-size: 16px;
+  font-weight: 700;
+  width: 52px;
+  user-select: none;
+}
+
+.celula-mes.pago {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.celula-mes.pago:hover {
+  background: #c8e6c9;
+}
+
+.celula-mes.nao-pago {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.celula-mes.nao-pago:hover {
+  background: #ffcdd2;
+}
+
+/* Total */
+.td-total {
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 55px;
+  white-space: nowrap;
+}
+
+.td-total.status-em-dia {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.td-total.status-parcial {
+  color: #e65100;
+  background: #fff3e0;
+}
+
+.td-total.status-inadimplente {
+  color: #c62828;
+  background: #fdecea;
+}
+
+.tabela-sem-dados {
+  text-align: center;
+  padding: 50px 20px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* ========================
+   RESPONSIVO ADMIN
+======================== */
+@media (max-width: 768px) {
+  .admin-topo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 20px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mens-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .mens-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .barra-acoes {
+    justify-content: stretch;
+  }
+
+  .btn-cadastrar {
+    width: 100%;
+    justify-content: center;
+  }
+}

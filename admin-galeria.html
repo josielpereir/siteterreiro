@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria – Admin</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <header class="admin-topo">
+    <h1>Painel Administrativo</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html">Membros</a>
+    <a href="admin-mensalidades.html">Mensalidades</a>
+    <a href="admin-datas.html">Datas Festivas</a>
+    <a href="admin-galeria.html" class="ativo">Galeria</a>
+  </nav>
+
+  <main class="admin-container">
+
+    <!-- CRIAR GALERIA -->
+    <section class="admin-box">
+      <h2>➕ Criar galeria de festa</h2>
+
+      <label>Festa</label>
+      <select id="festaSelect"></select>
+
+      <label>Foto principal (capa)</label>
+      <input type="file" id="capa" accept="image/*">
+
+      <button onclick="criarGaleria()">Criar galeria</button>
+    </section>
+
+    <!-- ADICIONAR FOTOS -->
+    <section class="admin-box">
+      <h2>🖼️ Adicionar fotos à galeria</h2>
+
+      <label>Galeria</label>
+      <select id="galeriaSelect"></select>
+
+      <input type="file" id="fotoGaleria" accept="image/*" multiple>
+
+      <button onclick="adicionarFotos()">Adicionar fotos</button>
+    </section>
+
+    <!-- EDITAR GALERIAS -->
+    <section class="admin-box">
+      <h2>⚙️ Administrar galerias existentes</h2>
+
+      <label>Selecionar galeria</label>
+      <select id="editarGaleriaSelect"></select>
+
+      <div id="adminGaleriaBox" style="display:none;">
+
+        <label>Nome da galeria</label>
+        <input type="text" id="editarNome">
+
+        <label>Trocar foto de capa</label>
+        <input type="file" id="editarCapa" accept="image/*">
+
+        <button onclick="salvarEdicaoGaleria()">Salvar alterações</button>
+
+        <p class="admin-dica">
+          Clique na foto para definir como capa • Clique com o botão direito para excluir
+        </p>
+
+        <div id="listaFotosAdmin" class="fotos-admin"></div>
+
+        <button onclick="excluirGaleria()" class="btn-excluir" style="margin-top:20px;">
+          Excluir galeria
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="assets/js/admin-galeria.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("logado");
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

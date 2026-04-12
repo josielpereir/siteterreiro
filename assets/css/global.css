@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ========================
+   VARIÁVEIS GLOBAIS
+======================== */
+:root {
+  --verde:        #00801c;
+  --verde-escuro: #005c14;
+  --verde-medio:  #006b17;
+  --verde-claro:  #e8f5e9;
+  --verde-fundo:  #f0f4f0;
+  --vermelho:     #c62828;
+  --vermelho-claro: #fdecea;
+  --amarelo:      #f59e0b;
+  --azul:         #1d6fa5;
+  --cinza:        #6b7280;
+  --cinza-claro:  #f3f4f6;
+  --branco:       #ffffff;
+  --texto:        #1a1a2e;
+  --sombra-sm:    0 1px 4px rgba(0,0,0,0.08);
+  --sombra:       0 2px 10px rgba(0,0,0,0.10);
+  --sombra-lg:    0 4px 20px rgba(0,0,0,0.14);
+  --radius:       10px;
+  --radius-sm:    6px;
+  --radius-lg:    14px;
+  --transition:   0.2s ease;
+}
+
+/* ========================
+   RESET E BASE
+======================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: var(--verde-fundo);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  flex: 1;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   HEADER
+======================== */
+.header {
+  background: linear-gradient(135deg, var(--verde) 0%, var(--verde-escuro) 100%);
+  color: var(--branco);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.20);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header .logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .logo h1 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.header .logo h1 span {
+  display: block;
+}
+
+.header .logo h1 span:first-child {
+  font-size: 17px;
+}
+
+.header .logo h1 span:last-child {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.88;
+}
+
+.header .logo > span,
+.logo > span {
+  font-size: 11px;
+  opacity: 0.80;
+  font-style: italic;
+  letter-spacing: 0.4px;
+  margin-top: 2px;
+}
+
+/* ========================
+   NAVEGAÇÃO
+======================== */
+.menu {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13.5px;
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,0.18);
+  text-decoration: none;
+}
+
+.menu a.ativo {
+  background: rgba(255,255,255,0.25);
+  font-weight: 600;
+}
+
+.menu a.menu-admin {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+.menu a.menu-admin:hover {
+  background: rgba(255,255,255,0.28);
+}
+
+/* ========================
+   RODAPÉ
+======================== */
+.rodape {
+  background: linear-gradient(135deg, var(--verde) 0%, var(--verde-escuro) 100%);
+  color: var(--branco);
+  text-align: center;
+  padding: 24px 20px;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.10);
+}
+
+.rodape p {
+  font-size: 13px;
+  margin: 3px 0;
+  opacity: 0.9;
+}
+
+/* ========================
+   CARDS GENÉRICOS
+======================== */
+.card {
+  background: var(--branco);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--sombra);
+}
+
+/* ========================
+   BOTÕES GENÉRICOS
+======================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+.btn-primary:hover {
+  background: var(--verde-medio);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,128,28,0.25);
+  text-decoration: none;
+  color: var(--branco);
+}
+
+.btn-danger {
+  background: var(--vermelho);
+  color: var(--branco);
+}
+
+.btn-danger:hover {
+  background: #a93226;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--branco);
+}
+
+/* ========================
+   RESPONSIVO
+======================== */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .menu {
+    gap: 4px;
+  }
+
+  .menu a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  main {
+    padding: 20px 14px;
+  }
+}

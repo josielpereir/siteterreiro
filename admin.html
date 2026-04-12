@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo – Terreiro</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <header class="admin-topo">
+    <h1>Painel Administrativo</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html" class="ativo">Membros</a>
+    <a href="admin-mensalidades.html">Mensalidades</a>
+    <a href="admin-datas.html">Datas Festivas</a>
+    <a href="admin-galeria.html">Galeria</a>
+  </nav>
+
+  <!-- ESTATÍSTICAS -->
+  <section class="stats" id="statsSection">
+    <div class="card-stats">
+      <h3 id="totalMembros">0</h3>
+      <p>Total de Membros</p>
+    </div>
+    <div class="card-stats stat-azul">
+      <h3 id="totalEmDia">0</h3>
+      <p>Em Dia (ano atual)</p>
+    </div>
+    <div class="card-stats stat-vermelho">
+      <h3 id="totalPendentes">0</h3>
+      <p>Com Pendências</p>
+    </div>
+  </section>
+
+  <!-- BOTÃO CADASTRAR -->
+  <div class="barra-acoes">
+    <a href="cadastro.html" class="btn-cadastrar">+ Cadastrar Novo Membro</a>
+  </div>
+
+  <!-- LISTA DE MEMBROS -->
+  <section class="section-membros" id="listaMembros">
+    <!-- Cards gerados via JS -->
+  </section>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

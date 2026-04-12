@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datas Festivas – Admin</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/datas.css">
+</head>
+<body>
+
+  <header class="admin-topo">
+    <h1>Painel Administrativo</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html">Membros</a>
+    <a href="admin-mensalidades.html">Mensalidades</a>
+    <a href="admin-datas.html" class="ativo">Datas Festivas</a>
+    <a href="admin-galeria.html">Galeria</a>
+  </nav>
+
+  <main class="pagina-datas" style="max-width:860px;margin:0 auto;padding:36px 20px;">
+    <h2>Gerenciar Datas Festivas</h2>
+    <p class="datas-subtitulo">Adicione, edite ou exclua datas do calendário público do terreiro.</p>
+    <div class="datas-linha"></div>
+
+    <!-- Formulário -->
+    <div class="admin-form-datas">
+      <h3 id="tituloFormData">➕ Adicionar nova data</h3>
+
+      <label for="data">Data da festa</label>
+      <input type="date" id="data">
+
+      <label for="descricao">Nome da festa</label>
+      <input type="text" id="descricao" placeholder="Ex: Festa de Iemanjá">
+
+      <label for="texto">Descrição (opcional)</label>
+      <textarea id="texto" placeholder="Informações adicionais sobre a festa..."></textarea>
+
+      <button onclick="adicionarData()" id="btnAdicionarData">Adicionar data</button>
+    </div>
+
+    <!-- Lista -->
+    <ul id="listaDatas" style="margin-top:32px;"></ul>
+  </main>
+
+  <script src="assets/js/admin-datas.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("logado");
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+/* ========================
+   PÁGINA ENSINAMENTOS
+======================== */
+
+.pagina-ensinamentos {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ========================
+   HERO DA PÁGINA
+======================== */
+.ensin-hero {
+  background: linear-gradient(160deg, #004d10 0%, #00801c 60%, #00a825 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ensin-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.ensin-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ensin-hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.ensin-hero h1 {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.ensin-hero p {
+  font-size: 15px;
+  opacity: 0.92;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ========================
+   AVISO ESPIRITUAL
+======================== */
+.aviso-espiritual {
+  background: #fffbeb;
+  border: 1.5px solid #fbbf24;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  margin-top: 36px;
+}
+
+.aviso-icone {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.aviso-espiritual p {
+  font-size: 13.5px;
+  color: #78350f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.aviso-espiritual strong {
+  color: #92400e;
+}
+
+/* ========================
+   SEÇÃO INTRO BANHOS
+======================== */
+.intro-banhos {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #00801c;
+  margin-bottom: 40px;
+}
+
+.intro-banhos h2 {
+  color: #00801c;
+  font-size: 20px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.intro-banhos p {
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.intro-banhos p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lista de regras gerais */
+.regras-banho {
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.regras-banho li {
+  background: #f0faf2;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #2e7d32;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+/* ========================
+   TÍTULO DE SEÇÃO
+======================== */
+.secao-titulo-ensin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 20px;
+}
+
+.secao-titulo-ensin h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
+.secao-titulo-ensin::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #00801c22, transparent);
+  border-radius: 2px;
+}
+
+/* ========================
+   CARDS DE BANHO
+======================== */
+.grid-banhos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card-banho {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-banho:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.11);
+}
+
+/* Cabeçalho do card */
+.card-banho-header {
+  padding: 20px 22px 16px;
+  color: white;
+  position: relative;
+}
+
+.card-banho-header.defesa    { background: linear-gradient(135deg, #1a237e, #283593); }
+.card-banho-header.limpeza   { background: linear-gradient(135deg, #004d40, #00695c); }
+.card-banho-header.descarrego{ background: linear-gradient(135deg, #4a148c, #6a1b9a); }
+.card-banho-header.paz       { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+.card-banho-header.prosperidade { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.card-banho-header.amor      { background: linear-gradient(135deg, #880e4f, #ad1457); }
+
+.card-banho-icone {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-banho-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.card-banho-header p {
+  font-size: 12.5px;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* Corpo do card */
+.card-banho-corpo {
+  padding: 18px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.banho-subsecao h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+/* Tags de ervas */
+.tags-ervas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-erva {
+  background: #f0faf2;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.card-banho-header.defesa     ~ .card-banho-corpo .tag-erva { background: #e8eaf6; color: #283593; border-color: #9fa8da; }
+.card-banho-header.limpeza    ~ .card-banho-corpo .tag-erva { background: #e0f2f1; color: #00695c; border-color: #80cbc4; }
+.card-banho-header.descarrego ~ .card-banho-corpo .tag-erva { background: #f3e5f5; color: #6a1b9a; border-color: #ce93d8; }
+.card-banho-header.paz        ~ .card-banho-corpo .tag-erva { background: #e3f2fd; color: #1565c0; border-color: #90caf9; }
+.card-banho-header.prosperidade~.card-banho-corpo .tag-erva { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
+.card-banho-header.amor       ~ .card-banho-corpo .tag-erva { background: #fce4ec; color: #ad1457; border-color: #f48fb1; }
+
+/* Modo de preparo */
+.preparo-banho {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  border-left: 3px solid #ddd;
+}
+
+.card-banho-header.defesa     ~ .card-banho-corpo .preparo-banho { border-left-color: #5c6bc0; }
+.card-banho-header.limpeza    ~ .card-banho-corpo .preparo-banho { border-left-color: #26a69a; }
+.card-banho-header.descarrego ~ .card-banho-corpo .preparo-banho { border-left-color: #ab47bc; }
+.card-banho-header.paz        ~ .card-banho-corpo .preparo-banho { border-left-color: #42a5f5; }
+.card-banho-header.prosperidade~.card-banho-corpo .preparo-banho { border-left-color: #66bb6a; }
+.card-banho-header.amor       ~ .card-banho-corpo .preparo-banho { border-left-color: #ec407a; }
+
+/* ========================
+   TABELA DE ERVAS
+======================== */
+.secao-tabela-ervas {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.tabela-ervas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela-ervas thead tr {
+  background: linear-gradient(135deg, #00801c, #005c14);
+  color: white;
+}
+
+.tabela-ervas th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tabela-ervas tbody tr {
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s;
+}
+
+.tabela-ervas tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tabela-ervas tbody tr:hover {
+  background: #f8fdf8;
+}
+
+.tabela-ervas td {
+  padding: 13px 16px;
+  vertical-align: top;
+}
+
+.erva-nome {
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
+.erva-uso {
+  color: #555;
+  line-height: 1.5;
+}
+
+.erva-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.erva-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-defesa     { background: #e8eaf6; color: #283593; }
+.badge-limpeza    { background: #e0f2f1; color: #00695c; }
+.badge-descarrego { background: #f3e5f5; color: #6a1b9a; }
+.badge-paz        { background: #e3f2fd; color: #1565c0; }
+.badge-prosperidade { background: #e8f5e9; color: #2e7d32; }
+.badge-amor       { background: #fce4ec; color: #ad1457; }
+
+/* ========================
+   RESPONSIVO
+======================== */
+@media (max-width: 700px) {
+  .grid-banhos {
+    grid-template-columns: 1fr;
+  }
+
+  .tabela-ervas th:last-child,
+  .tabela-ervas td:last-child {
+    display: none;
+  }
+
+  .regras-banho {
+    grid-template-columns: 1fr;
+  }
+}

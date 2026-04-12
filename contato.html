@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato – Terreiro de Umbanda</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/cadastro.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h1>
+        <span>Templo de Umbanda</span>
+        <span>Caboclo Pena Verde e Zé Baiano</span>
+      </h1>
+      <span>Caridade, fé e amor</span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="datas.html">Datas</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="ensinamentos.html">Ensinamentos</a>
+      <a href="contato.html" class="ativo">Contato</a>
+      <a href="login.html" class="menu-admin">Área Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="formulario">
+      <h2>Entre em Contato</h2>
+      <p class="subtitulo-form">Preencha o formulário abaixo e retornaremos em breve.</p>
+
+      <form id="formContato">
+        <label for="nomeContato">Nome completo</label>
+        <input type="text" id="nomeContato" required placeholder="Seu nome">
+
+        <label for="emailContato">E-mail</label>
+        <input type="email" id="emailContato" required placeholder="seu@email.com">
+
+        <label for="mensagemContato">Mensagem</label>
+        <textarea id="mensagemContato" rows="5" required placeholder="Escreva sua mensagem..."></textarea>
+
+        <button type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2026 Terreiro de Umbanda – Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById('formContato').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensagem enviada! Entraremos em contato em breve.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

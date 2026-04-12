@@ -1,0 +1,189 @@
+/* ========================
+   CADASTRO DE MEMBROS
+======================== */
+
+.cadastro-aviso-admin {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-left: 5px solid #c62828;
+}
+
+.cadastro-aviso-admin h2 {
+  color: #c62828;
+  margin-bottom: 10px;
+}
+
+.cadastro-aviso-admin p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.cadastro-aviso-admin a {
+  display: inline-block;
+  background: #00801c;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 7px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.cadastro-aviso-admin a:hover {
+  background: #006b17;
+}
+
+/* ========================
+   FORMULÁRIO
+======================== */
+.formulario {
+  max-width: 620px;
+  margin: 36px auto;
+  padding: 34px 32px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+  border-top: 4px solid #00801c;
+}
+
+.formulario h2 {
+  text-align: center;
+  color: #00801c;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.formulario .subtitulo-form {
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 26px;
+}
+
+/* Grupos de campo */
+.campo-grupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.campo-full {
+  grid-column: 1 / -1;
+}
+
+/* Separadores de seção */
+.form-secao {
+  margin: 22px 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #00801c;
+  border-bottom: 1.5px solid #e8f5e9;
+  padding-bottom: 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #444;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  margin-top: 4px;
+  border-radius: 7px;
+  border: 1.5px solid #ddd;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  background: #fafafa;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #00801c;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0,128,28,0.08);
+}
+
+/* Destaque para dia de pagamento */
+.campo-dia-pagamento {
+  background: #f0faf2;
+  border: 1.5px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.campo-dia-pagamento label {
+  margin-top: 0;
+  color: #2e7d32;
+  font-size: 13px;
+}
+
+.campo-dia-pagamento input {
+  margin-top: 6px;
+  border-color: #a5d6a7;
+  background: white;
+}
+
+.campo-dia-pagamento small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #66a;
+  color: #4a8055;
+}
+
+/* Botão submit */
+button[type="submit"] {
+  margin-top: 26px;
+  padding: 13px;
+  background: #00801c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,128,28,0.20);
+}
+
+button[type="submit"]:hover {
+  background: #006b17;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,128,28,0.30);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .formulario {
+    margin: 20px 12px;
+    padding: 24px 18px;
+  }
+
+  .campo-grupo {
+    grid-template-columns: 1fr;
+  }
+}

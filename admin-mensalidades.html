@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensalidades – Admin</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <header class="admin-topo">
+    <h1>Painel Administrativo</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html">Membros</a>
+    <a href="admin-mensalidades.html" class="ativo">Mensalidades</a>
+    <a href="admin-datas.html">Datas Festivas</a>
+    <a href="admin-galeria.html">Galeria</a>
+  </nav>
+
+  <main class="mensalidades-main">
+
+    <!-- TÍTULO E SELETOR DE ANO -->
+    <h2 class="mens-titulo">Controle de Mensalidades</h2>
+
+    <div class="mens-ano-row">
+      <span>Ano:</span>
+      <div id="anoSeletor"></div>
+    </div>
+
+    <!-- ESTATÍSTICAS -->
+    <div class="mens-stats" id="mensStats"></div>
+
+    <!-- FILTROS -->
+    <div class="mens-filtros">
+      <input type="text" id="buscarMembro" placeholder="Buscar membro pelo nome...">
+      <div class="filtro-btns">
+        <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="em-dia">Em dia</button>
+        <button class="filtro-btn" data-filtro="pendentes">Com pendências</button>
+        <button class="filtro-btn" data-filtro="inadimplentes">Inadimplentes</button>
+      </div>
+    </div>
+
+    <!-- TABELA -->
+    <div class="tabela-wrapper">
+      <table class="tabela-mens" id="tabelaMensalidades">
+        <thead>
+          <tr>
+            <th class="th-nome">Membro</th>
+            <th title="Janeiro">Jan</th>
+            <th title="Fevereiro">Fev</th>
+            <th title="Março">Mar</th>
+            <th title="Abril">Abr</th>
+            <th title="Maio">Mai</th>
+            <th title="Junho">Jun</th>
+            <th title="Julho">Jul</th>
+            <th title="Agosto">Ago</th>
+            <th title="Setembro">Set</th>
+            <th title="Outubro">Out</th>
+            <th title="Novembro">Nov</th>
+            <th title="Dezembro">Dez</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaBody"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <script src="assets/js/admin-mensalidades.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("logado");
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
