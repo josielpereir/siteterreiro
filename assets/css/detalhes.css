@@ -208,6 +208,40 @@
   color: #c62828;
 }
 
+/* Botões marcar todas */
+.btn-marcar-todas {
+  padding: 5px 13px;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-marcar-pago {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.btn-marcar-pago:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+.btn-marcar-nao {
+  background: #fdecea;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.btn-marcar-nao:hover {
+  background: #c62828;
+  color: white;
+}
+
 /* Tabela */
 .tabela-mensalidades {
   width: 100%;

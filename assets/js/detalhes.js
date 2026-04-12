@@ -106,6 +106,10 @@ detalhesEl.innerHTML = `
       <span class="detalhe-valor">${membro.diaPagamento ? "Todo dia " + membro.diaPagamento : "—"}</span>
     </div>
     <div class="detalhe-item">
+      <span class="detalhe-label">Valor da mensalidade</span>
+      <span class="detalhe-valor">${membro.valorMensalidade ? "R$ " + parseFloat(membro.valorMensalidade).toFixed(2).replace(".", ",") : "—"}</span>
+    </div>
+    <div class="detalhe-item">
       <span class="detalhe-label">Batizado</span>
       <span class="detalhe-valor">${membro.batizado === "sim" ? "Sim" : membro.batizado === "nao" ? "Não" : "—"}</span>
     </div>
@@ -162,11 +166,13 @@ function renderMensalidades() {
   const pagosCnt = MESES.filter(m => mens[m]).length;
   const pendCnt  = 12 - pagosCnt;
 
-  // Resumo
+  // Resumo + botões de ação rápida
   const resumoEl = document.getElementById("mensResumo");
   resumoEl.innerHTML = `
     <span class="mens-resumo-item item-pago">✓ ${pagosCnt} pago${pagosCnt !== 1 ? "s" : ""}</span>
     <span class="mens-resumo-item item-pendente">✗ ${pendCnt} pendente${pendCnt !== 1 ? "s" : ""}</span>
+    <button onclick="marcarTodas(true)"  class="btn-marcar-todas btn-marcar-pago">✓ Marcar todas como pagas</button>
+    <button onclick="marcarTodas(false)" class="btn-marcar-todas btn-marcar-nao">✗ Desmarcar todas</button>
   `;
 
   // Tabela
@@ -193,6 +199,34 @@ function renderMensalidades() {
 
     tbody.appendChild(tr);
   });
+}
+
+// ================================
+// MARCAR TODAS DE UMA VEZ
+// ================================
+function marcarTodas(valor) {
+  const membrosAtuais = JSON.parse(localStorage.getItem("membros")) || [];
+  const m = membrosAtuais[index];
+  if (!m) return;
+
+  if (!m.mensalidadesAnos) {
+    m.mensalidadesAnos = {};
+    if (m.mensalidades) {
+      m.mensalidadesAnos[new Date().getFullYear()] = Object.assign({}, m.mensalidades);
+      delete m.mensalidades;
+    }
+  }
+
+  const empty = {};
+  MESES.forEach(mes => empty[mes] = false);
+  if (!m.mensalidadesAnos[anoSelecionado]) {
+    m.mensalidadesAnos[anoSelecionado] = Object.assign({}, empty);
+  }
+
+  MESES.forEach(mes => m.mensalidadesAnos[anoSelecionado][mes] = valor);
+  membrosAtuais[index] = m;
+  localStorage.setItem("membros", JSON.stringify(membrosAtuais));
+  renderMensalidades();
 }
 
 // ================================

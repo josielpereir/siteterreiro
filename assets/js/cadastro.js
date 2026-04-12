@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("email").value                = m.email                || "";
     document.getElementById("funcao").value               = m.funcao               || "";
     document.getElementById("dataEntrada").value          = m.dataEntrada          || "";
+    document.getElementById("valorMensalidade").value      = m.valorMensalidade      || "";
     document.getElementById("diaPagamento").value         = m.diaPagamento         || "";
     document.getElementById("paisCabeca").value           = m.paisCabeca           || "";
     document.getElementById("batizado").value             = m.batizado             || "";
@@ -75,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       email:                document.getElementById("email").value.trim(),
       funcao:               document.getElementById("funcao").value.trim(),
       dataEntrada:          document.getElementById("dataEntrada").value,
+      valorMensalidade:     document.getElementById("valorMensalidade").value,
       diaPagamento:         document.getElementById("diaPagamento").value,
       paisCabeca:           document.getElementById("paisCabeca").value.trim(),
       batizado:             document.getElementById("batizado").value,
