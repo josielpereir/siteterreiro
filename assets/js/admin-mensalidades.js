@@ -18,6 +18,14 @@ let busca       = "";
 // ================================
 // HELPERS
 // ================================
+function getMesesEsperados(ano) {
+  const hoje = new Date();
+  const anoAtual = hoje.getFullYear();
+  if (Number(ano) < anoAtual) return MESES;
+  if (Number(ano) > anoAtual) return [];
+  return MESES.slice(0, hoje.getMonth() + 1);
+}
+
 function getMensalidadesAno(membro, ano) {
   const empty = {};
   MESES.forEach(m => empty[m] = false);
@@ -84,17 +92,18 @@ function renderStats(membros) {
   const statsEl = document.getElementById("mensStats");
   if (!statsEl) return;
 
-  let totalCelulas = membros.length * 12;
+  const esperados = getMesesEsperados(anoAtual);
+  let totalCelulas = membros.length * esperados.length;
   let celulasPagas = 0;
   let emDia = 0;
   let inadimplentes = 0;
 
   membros.forEach(m => {
     const mens = getMensalidadesAno(m, anoAtual);
-    const pagosCnt = MESES.filter(mes => mens[mes]).length;
+    const pagosCnt = esperados.filter(mes => mens[mes]).length;
     celulasPagas += pagosCnt;
-    if (pagosCnt === 12) emDia++;
-    if (pagosCnt === 0)  inadimplentes++;
+    if (pagosCnt === esperados.length && esperados.length > 0) emDia++;
+    if (pagosCnt === 0) inadimplentes++;
   });
 
   const comPendencias = membros.length - emDia;
@@ -153,13 +162,18 @@ function renderTabela(membros) {
     return;
   }
 
-  tbody.innerHTML = lista.map(membro => {
-    const mens     = getMensalidadesAno(membro, anoAtual);
-    const pagosCnt = MESES.filter(mes => mens[mes]).length;
+  const esperadosTabela = getMesesEsperados(anoAtual);
 
-    const statusClass = pagosCnt === 12 ? "status-em-dia"
-                      : pagosCnt === 0  ? "status-inadimplente"
+  tbody.innerHTML = lista.map(membro => {
+    const mens         = getMensalidadesAno(membro, anoAtual);
+    const pagosCnt     = esperadosTabela.length > 0 ? esperadosTabela.filter(mes => mens[mes]).length : 0;
+    const totalEsp     = esperadosTabela.length;
+
+    const statusClass = (totalEsp === 0)              ? "status-em-dia"
+                      : pagosCnt === totalEsp          ? "status-em-dia"
+                      : pagosCnt === 0                 ? "status-inadimplente"
                       : "status-parcial";
+    const totalTexto = totalEsp > 0 ? `${pagosCnt}/${totalEsp}` : "—";
 
     const celulas = MESES.map(mes => {
       const pago = mens[mes];
@@ -181,7 +195,7 @@ function renderTabela(membros) {
           </div>
         </td>
         ${celulas}
-        <td class="td-total ${statusClass}">${pagosCnt}/12</td>
+        <td class="td-total ${statusClass}">${totalTexto}</td>
       </tr>
     `;
   }).join("");

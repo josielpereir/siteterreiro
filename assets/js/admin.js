@@ -15,11 +15,30 @@ function getMensalidadesAno(membro, ano) {
   if (membro.mensalidadesAnos && membro.mensalidadesAnos[ano]) {
     return Object.assign({}, empty, membro.mensalidadesAnos[ano]);
   }
-  // Retrocompatibilidade com estrutura antiga
   if (String(ano) === String(new Date().getFullYear()) && membro.mensalidades) {
     return Object.assign({}, empty, membro.mensalidades);
   }
   return empty;
+}
+
+// Retorna quais meses devem ser verificados para o ano informado
+function getMesesEsperados(ano) {
+  const hoje = new Date();
+  const anoAtual = hoje.getFullYear();
+  if (Number(ano) < anoAtual) return MESES;           // ano passado: todos 12
+  if (Number(ano) > anoAtual) return [];               // ano futuro: nenhum
+  return MESES.slice(0, hoje.getMonth() + 1);          // ano atual: até o mês atual
+}
+
+// Calcula status real considerando apenas meses vencidos
+function calcularStatus(mens, ano) {
+  const esperados = getMesesEsperados(ano);
+  if (esperados.length === 0) return { classe: "badge-ok", texto: "Sem cobranças", pagos: 0, total: 0 };
+  const pagos = esperados.filter(m => mens[m]).length;
+  const total = esperados.length;
+  if (pagos === total) return { classe: "badge-ok",          texto: "Em dia",               pagos, total };
+  if (pagos === 0)     return { classe: "badge-inadimplente", texto: "Inadimplente",          pagos, total };
+  return               { classe: "badge-pendente",           texto: `${pagos}/${total} pagos`, pagos, total };
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,8 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let emDia = 0;
   membros.forEach(m => {
-    const mens = getMensalidadesAno(m, anoAtual);
-    if (MESES.every(mes => mens[mes])) emDia++;
+    const mens   = getMensalidadesAno(m, anoAtual);
+    const status = calcularStatus(mens, anoAtual);
+    if (status.classe === "badge-ok") emDia++;
   });
   const pendentes = membros.length - emDia;
   if (emDiaEl) emDiaEl.textContent = emDia;
@@ -60,14 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
   grid.className = "grid-membros";
 
   membros.forEach((membro, index) => {
-    const mens     = getMensalidadesAno(membro, anoAtual);
-    const pagosCnt = MESES.filter(m => mens[m]).length;
-    const todosPago = pagosCnt === 12;
-    const algumPendente = pagosCnt < 12 && pagosCnt > 0;
-    const nenhum = pagosCnt === 0;
-
-    let badgeClass = todosPago ? "badge-ok" : nenhum ? "badge-inadimplente" : "badge-pendente";
-    let badgeText  = todosPago ? "Em dia" : nenhum ? "Inadimplente" : `${pagosCnt}/12 pagos`;
+    const mens   = getMensalidadesAno(membro, anoAtual);
+    const status = calcularStatus(mens, anoAtual);
+    const badgeClass = status.classe;
+    const badgeText  = status.texto;
 
     const card = document.createElement("div");
     card.className = "card-membro";
