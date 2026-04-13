@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alterar Credenciais – Admin</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <style>
+    .senha-box {
+      max-width: 480px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 14px;
+      padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      border-top: 4px solid #00801c;
+    }
+    .senha-box h2 {
+      color: #00801c;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .senha-box p {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .senha-box label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      color: #444;
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+    .senha-box input {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .senha-box input:focus {
+      border-color: #00801c;
+    }
+    .senha-box button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 13px;
+      background: #00801c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .senha-box button:hover {
+      background: #006b17;
+    }
+    .msg-feedback {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+      text-align: center;
+    }
+    .msg-ok    { background: #e8f5e9; color: #2e7d32; }
+    .msg-erro  { background: #fdecea; color: #c62828; }
+    .aviso-seguranca {
+      background: #fff8e1;
+      border: 1px solid #fbc02d;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #6d4c00;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="admin-topo">
+    <h1>Painel Administrativo</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav class="admin-menu">
+    <a href="admin.html">Membros</a>
+    <a href="admin-mensalidades.html">Mensalidades</a>
+    <a href="admin-datas.html">Datas Festivas</a>
+    <a href="admin-galeria.html">Galeria</a>
+    <a href="admin-senha.html" class="ativo">Alterar Senha</a>
+  </nav>
+
+  <main>
+    <div class="senha-box">
+      <h2>🔐 Alterar Credenciais de Acesso</h2>
+      <p>Troque o e-mail e a senha do administrador.</p>
+
+      <div class="aviso-seguranca">
+        ⚠️ <strong>Atenção:</strong> Anote a nova senha em lugar seguro. Se esquecer,
+        será necessário editar o arquivo <code>login.js</code> para redefinir.
+      </div>
+
+      <label for="senhaAtual">Senha atual (confirmação)</label>
+      <input type="password" id="senhaAtual" placeholder="Digite a senha atual">
+
+      <label for="novoEmail">Novo e-mail de acesso</label>
+      <input type="email" id="novoEmail" placeholder="novo@email.com">
+
+      <label for="novaSenha">Nova senha</label>
+      <input type="password" id="novaSenha" placeholder="Mínimo 6 caracteres">
+
+      <label for="confirmarSenha">Confirmar nova senha</label>
+      <input type="password" id="confirmarSenha" placeholder="Repita a nova senha">
+
+      <button onclick="alterarCredenciais()">Salvar credenciais</button>
+
+      <div id="msgFeedback" class="msg-feedback"></div>
+    </div>
+  </main>
+
+  <script src="assets/js/admin-senha.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem("logado");
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
